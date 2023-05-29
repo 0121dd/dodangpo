@@ -1,0 +1,53 @@
+#header {
+    height: 100px;
+    background-color: #8294C4;
+}
+    #header_layer1{
+        /* 부모꺼를 받아오겠다 inherit */
+        height: inherit;
+        width: 25%;
+        background-color:#ACBCFF;
+        float: left;
+    }
+    #header_layer2{
+        height: inherit;
+        width: 50%;
+        background-color: #AEE2FF;
+        float: left;
+    }
+    #header_layer3{
+        height: inherit;
+        width: 25%;
+        background-color: #B799FF;
+        float: left;
+    }
+#nav {
+    height: 50px;
+    background-color: #ACB1D6;
+}
+#main {
+    height: 400px;
+    background-color: #DBDFEA;
+}
+    #main_layer1 {
+        height: 100%;
+        width: 15%;
+        background-color: #F0EDD4;
+        float: left;
+    }
+    #main_layer2 {
+        height: 100%;
+        width: 60%;
+        background-color: #E6FFFD;
+        float: left;
+    }
+    #main_layer3 {
+        height: 100%;
+        width: 25%;
+        background-color: #C9DBB2;
+        float: left;
+    }
+#footer {
+    height: 100px;
+    background-color: #FFD1D1;
+}

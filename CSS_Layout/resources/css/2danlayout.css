@@ -1,0 +1,30 @@
+div {
+    /* 요즘 사용 안함 */
+    --border: 1px solid black;
+    --box-sizing: border-box;
+}
+#header {
+    height: 100px;
+    width: 100%;
+    background-color: antiquewhite;
+}
+#main {
+    height:500px;
+    background-color: aquamarine;
+}
+    #main-layer1 {
+        height:100%;
+        width: 20%;
+        float: left;
+        background-color: coral;
+    }
+    #main-layer2 {
+        height:100%;
+        width: 80%;
+        float: left;
+        background-color: khaki;
+    }
+#footer {
+    height:100px;
+    background-color: darkcyan;
+}

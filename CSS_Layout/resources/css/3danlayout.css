@@ -1,0 +1,32 @@
+#header {
+    height: 100px;
+    width: 100%;
+    background-color: aquamarine;
+}
+#main {
+    height: 500px;
+    background-color: blanchedalmond;
+}
+    #main-layer1 {
+        height: 100%;
+        width: 15%;
+        background-color: deepskyblue;
+        float: left;
+    }
+    #main-layer2 {
+        height: 100%;
+        width: 60%;
+        background-color: brown;
+        float: left;
+    }
+    #main-layer3 {
+        height: 100%;
+        width: 25%;
+        background-color: cyan;
+        float: left;
+    }
+#footer {
+    height: 100px;
+    width: 100%;
+    background-color: coral;
+}

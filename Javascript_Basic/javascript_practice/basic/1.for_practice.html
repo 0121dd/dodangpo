@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>구구단 실습</title>
+        <style>
+            div {
+                border: 1px solid #222;
+                display: inline-block;
+                padding: 0 20px 30px 20px;
+                line-height: 2;
+                margin: 10px;
+            }
+            div h3 {
+                text-align: center;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>구구단</h1>
+        <script>
+            /*
+            var inputDan = prompt("단 수를 입력하세요.");
+            if(inputDan == 3) {
+                document.write("<h3>3단</h3>");
+            }
+            for(var i = 2; i < 10; i++) {
+                document.write("<h3>" + i + "단</h3>");
+                for(var j = 1; j < 10; j++) {
+                    document.write(i + " * " + j + " = " + i * j + "<br>");
+                }
+            }
+            */
+            
+            for(var i = 2; i < 10; i++) {
+                if(i % 2 === 0) { 
+                    continue; // i가 짝수일 경우 continue, 짝수가 아닌 경우만 나타남.
+                    //break; // for문이 끝나버림
+                }
+                document.write("<div>");
+                document.write("<h3>" + i + "단</h3>");
+                for(var j = 1; j < 10; j++) {
+                    document.write(i + " * " + j + " = " + i * j + "<br>");
+                }
+                document.write("</div>");
+            }
+            
+        </script>
+    </body>
+</html>

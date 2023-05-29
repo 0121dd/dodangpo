@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>자리배치도 만들기</title>
+        <style>
+            table {
+                border: 1px solid #222;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid #222;
+                padding: 5px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>자리배치도 만들기</h1>
+        <button onclick="seatMake();">배치 생성</button>
+        <script>
+            function seatMake() {
+                var customer = prompt("입장객은 몇 명입니까?");
+                var colNum = prompt("한 줄에 몇명씩 앉습니까?");
+                var rowNum = parseInt(customer/colNum)  + 1;
+                var count = 1;
+                document.write("<table border='1'>") // 버튼을 클릭하면 리로드 되서 style이 안먹힘.
+                    for(j = 1; j <= rowNum; j++) {
+                        document.write("<tr>");
+                        for(i = 1; i <= colNum; i++) {
+                            if(count <= customer){
+                                document.write("<td>" + "좌석 " + count + "</td>");
+                                count++;
+                            } else { 
+                                break;
+                            }
+                        }
+                        document.write("</tr>");
+                    }
+                document.write("</table>")
+            }
+        </script>
+    </body>
+</html>

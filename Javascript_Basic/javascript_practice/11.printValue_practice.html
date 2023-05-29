@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>입력한 값 출력하기</title>
+        <style>
+            #area {
+                width: 400px;
+                height: 150px;
+                background: #ffff99;
+                border: 1px solid #6666ff;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>입력한 값 출력 문제</h2>
+        <label>구매자 : </label>
+        <input type="text" placeholder="구매자의 이름을 입력하세요.">
+        <br>
+        <br>
+        <label>상품명 : </label>
+        <input type="text" id="pname" placeholder="구매 상품명을 입력하세요">
+        <br>
+        <br>
+        <label>가격 : </label>
+        <input type="text" name="price" placeholder="구매 가격을 입력하세요.">
+        <br>
+        <br>
+        <button onclick="printValue();">입력값 출력하기</button>
+        <br>
+        <br>
+        <div id="area"></div>
+        <script>
+            function printValue() {
+                /*
+                var inputTags = document.getElementsByTagName("input");
+                var customerTag = inputTags[0];
+                var productNameTag = inputTags[1];
+                var priceTag = inputTags[2];
+                var divTag = document.getElementById("area");
+                // divTag.innerText = customerTag.value;
+                // divTag.innerText = productNameTag.value;
+                
+                // divTag.innerHTML 
+                // = "구매자 : " + customerTag.value  
+                // + "<br> 상품명 : " + productNameTag.value 
+                // + "<br> 가격 : " + priceTag.value;
+                
+                // .innerText로 출력하면 <br>이 텍스트로 나옴.
+                // sum = sum + sum;       
+                // sum += num;   <- 누적이 되게 만드는 코드
+                divTag.innerHTML += "구매자 : " + customerTag.value + "<br>";
+                divTag.innerHTML += "상품명 : " + productNameTag.value + "<br>";
+                divTag.innerHTML += "가격 : " + priceTag.value;
+                */
+
+                /* 내가 작성한 코드 
+                - label 내용도 찍어냄 
+                .textContent를 안쓰고 .innerText를 쓰는 이유
+                (https://webisfree.com/2020-03-07/[%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8]-textcontent-%EA%B7%B8%EB%A6%AC%EA%B3%A0-innertext-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
+                 */
+                var inputTag = document.getElementsByTagName("input");
+                var customerVal = inputTag[0].value;
+                var productNameVal = inputTag[1].value;
+                var priceVal = inputTag[2].value;
+
+                var labelTag = document.getElementsByTagName("label");
+                var customerLabel = labelTag[0].innerText;
+                var productNameLabel = labelTag[1].innerText;
+                var priceLabel = labelTag[2].innerText;
+                console.log(customerLabel);
+
+                var divTag = document.querySelector("#area");
+                divTag.innerHTML = customerLabel + customerVal + "<br>";
+                divTag.innerHTML += productNameLabel + productNameVal + "<br>";
+                divTag.innerHTML += priceLabel + priceVal;
+            }
+        </script>
+    </body>
+</html>

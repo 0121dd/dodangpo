@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>입력한 값 출력하기</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h2>JS 테이블 추가하기</h2>
+        <p>
+            폼 입력양식에 값을 입력하고 추가 버튼을 누르면 
+            입력값들을 아래의 테이블에 한줄씩 추가되게 함
+        </p>
+        <form action="" method="">
+            <label>이름 : <input type="text" id="name"></label>
+            <br>
+            <label>나이 : <input type="text" name="age" id="age"></label>
+            <br>
+            <label>성별 : </label>
+            <input type="radio" name="gender" value="M" id="male"><label for="male"> 남 </label>
+            <input type="radio" name="gender" value="F" id="female"><label for="female"> 여 </label>
+            <br>
+            <label>전화번호 : <input type="tel" id="phone"></label>
+            <br>
+            <label>취미 : </label>
+            <input type="checkbox" name="hobby" value="movie" id="movie"><label for="movie"> 영화보기</label>
+            <input type="checkbox" name="hobby" value="music" id="music"><label for="music"> 음악듣기 </label>
+            <input type="checkbox" name="hobby" value="sport" id="sport"><label for="sport"> 운동 </label>
+            <input type="checkbox" name="hobby" value="reading" id="reading"><label for="reading"> 독서 </label>
+            <input type="checkbox" name="hobby" value="climb" id="climb"><label for="climb"> 등산 </label>
+            <br>
+            <input type="button" value="추가하기" onclick="addUser();">
+            <input type="button" value="초기화" onclick="resetData();">
+        </form>
+        <p id="p3">
+            <table id="tbl" width="500px" border="1" cellspacing="0">
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                    <th>전화번호</th>
+                    <th>취미</th>
+                </tr>
+                <!-- 입력값들을 추가해 나감 -->
+            </table>
+        </p>
+        <script>
+            function resetData() {
+                document.querySelector("#name").value = "";
+                document.querySelector("#age").value = "";
+                // 라디오 버튼 초기화
+                document.querySelectorAll("[name=gender]")[0].checked = false;
+                document.querySelectorAll("[name=gender]")[1].checked = false;
+                document.querySelector("#phone").value = "";
+                //체크박스 초기화
+                for(var j = 0; j < 5; j++) {
+                    document.querySelectorAll("[name=hobby]")[j].checked = false;
+                }
+            }
+            function addUser() {
+                var inputName = document.querySelector("#name").value;
+                var inputAge = document.querySelector("#age").value;
+                var radioTag = document.getElementsByName("gender");
+                var inputPhone = document.querySelector("#phone").value;
+                var hobbyCheck = document.getElementsByName("hobby");
+                //입력 안하면 동작 안하게
+                if(inputName == "") {
+                    alert("이름을 입력해주세요.");
+                    return;
+                }
+                if(inputAge == "") {
+                    alert("나이를 입력해주세요.");
+                    return;
+                }
+                if(!radioTag[0].checked && !radioTag[1].checked) { // 남, 여 모두 선택이 안되어 있을 경우
+                    alert("성별을 선택해주세요.");
+                    return;
+                }
+                if(inputPhone == "") {
+                    alert("전화번호를 입력해주세요.");
+                    return;
+                }
+                //취미는 1개이상 선택하기
+                /*
+                if(!hobbyCheck[0].checked 
+                && !hobbyCheck[1].checked 
+                && !hobbyCheck[2].checked 
+                && !hobbyCheck[3].checked 
+                && !hobbyCheck[4].checked) {
+                    alert("체크 안됨");
+                    return;
+                } */
+                var count = 0;
+                for(var k = 0;k < 5; k++) {
+                    if(hobbyCheck[k].checked) {
+                        count++;
+                    }
+                }
+                if(count == 0) {
+                    alert("적어도 한개 이상 선택해주세요!");
+                    return;
+                }
+
+                // 성별 값
+                var radioGender = "";
+                for(var i = 0; i < 2; i++) {
+                    if(radioTag[i].checked == true && radioTag[i].value === "M") {
+                        radioGender = "남";
+                        // break; // break: for문을 탈출함("여" 값이 안나옴)
+                    } else if(radioTag[i].checked == true && radioTag[i].value === "F") {
+                        radioGender = "여";
+                    }
+                }
+                /* radioTag[0].checked == true 안해도 됨.
+                if(radioTag[0].checked) {
+                    radioGender = "남";
+                } else if(radioTag[1].checked) {
+                    radioGender = "여";
+                } */
+                // console.log(radioGender);
+                // hobby 값
+                var hobbyValue = "";
+                for(var i = 0; i < 5; i++) {
+                    switch(hobbyCheck[i].checked == true && hobbyCheck[i].value) {
+                        case 'movie' : hobbyValue += "영화보기 ";
+                        break;
+                        case 'music' : hobbyValue += "음악듣기 ";
+                        break;
+                        case 'sport' : hobbyValue += "운동 ";
+                        break;
+                        case 'reading' : hobbyValue += "독서 ";
+                        break;
+                        case 'climb' : hobbyValue += "등산 ";
+                        break;
+                    }
+                    /* .nextSibling : 같은 노드 레벨의 다음값을 가져옴. 
+                    if(hobbyCheck[i].checked) {
+                        hobbyCheck[i].nextSibling.innerText;
+                    } */
+                }
+                // 추가테이블 만들기
+                var tableId = document.querySelector("#tbl");
+                tableId.innerHTML += 
+                "<tr><td>"+inputName+"</td><td>"+inputAge+"</td><td>"+radioGender
+                    +"</td><td>"+inputPhone+"</td><td>"+hobbyValue+"</td></tr>"
+                
+                resetData();
+            }
+            </script>
+    </body>
+</html>
