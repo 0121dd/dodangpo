@@ -26,7 +26,22 @@
         <button onclick="defaultSize();">원본</button>
         <button onclick="doubleSize();">두배로 만들기</button>
         <script>
-
+            function colorChange() {
+                var colorVal = document.querySelector("[type=color]").value; // 16진수값
+                document.querySelector("#div1").style.backgroundColor = colorVal;
+            }
+            function halfSize() {
+                document.querySelector("#div2").style.width = "50px";
+                document.querySelector("#div2").style.height = "50px";
+            }
+            function defaultSize() {
+                document.querySelector("#div2").style.width = "100px";
+                document.querySelector("#div2").style.height = "10px";
+            }
+            function doubleSize() {
+                document.querySelector("#div2").style.width = "200px";
+                document.querySelector("#div2").style.height = "200px";
+            }
         </script>
     </body>
 </html>
