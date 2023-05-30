@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>while문을 사용한 팩토리얼 계산</h1>
+    <script>
+        var num = prompt("숫자를 입력하세요.","10");
+        var msg = ""; // 모델 방식, 코드 줄여줌
+        var nFact = 1;
+        var i = 1;
+        if(num != null) {
+            while(i <= num) {
+                nFact =  i * nFact; 
+                i++;
+            }
+            msg = num + "!의 값 : " + nFact;
+        }else {
+            msg = "취소하셨습니다.";
+        }
+        document.write(msg);
+        // for(var i = 1; i <= num; i++) {
+        //     nFact = nFact * i;
+        // }
+    </script>
+</body>
+</html>

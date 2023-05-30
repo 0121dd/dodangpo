@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>자리 배치 만들기</title>
+        <style>
+            table {
+                border: 1px solid #222;
+                border-collapse: collapse;
+            }
+            td { 
+                border: 1px solid #222;
+                padding: 10px 15px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>자리 배치도</h1>
+        <script>
+            var customer = prompt("입장객은 몇 명인가요?");
+            var colNum = prompt("한 줄에 몇 명씩 앉습니까?");
+            // var rowNum = customer/colNum; 이게 왜 될까
+            var rowNum = parseInt(customer/colNum) + 1;
+            // console.log(rowNum);
+            var count = 1;
+            document.write("<table>");
+            for(var i = 0; i < rowNum; i++) {
+                document.write("<tr>");
+                    for(var j = 0; j < colNum; j++) {
+                        // if(count > customer) break;
+                        if(count <= customer) {
+                            document.write("<td>" + count + "</td>");
+                            count++;
+                        }else {
+                            break;
+                        }
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        </script>
+    </body>
+</html>

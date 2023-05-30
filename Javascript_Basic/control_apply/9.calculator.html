@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>계산기 실습</title>
+    </head>
+    <body>
+        <h2>간이 계산기 만들기</h2>
+        첫번째 값 : <input type="text" id="input1"> <br>
+        두번째 값 : <input type="text" id="input2"> <br>
+        <!-- <button>+</button> -->
+        <input type="button" value="+" onclick="calculate(this.value);">
+        <input type="button" value="-" onclick="calculate(this.value);">
+        <input type="button" value="x" onclick="calculate(this.value);">
+        <input type="button" value="/" onclick="calculate(this.value);">
+        <input type="button" value="%" onclick="calculate(this.value);">
+        <br><br>
+        계산결과 : <span id="result"></span>
+        <script>
+            // numberOne,numberTwo를 함수 밖에 선언을 하면 새로고침 하자마자 값을 가져오는거라 0값임.
+            function calculate(operator) {
+                var numberOne = Number(document.querySelector("#input1").value);
+                var numberTwo = Number(document.querySelector("#input2").value);
+                var result = 0;
+                switch(operator) {
+                    case '+' : result = numberOne + numberTwo;
+                    break;
+                    case '-' : result = numberOne - numberTwo;
+                    break;
+                    case 'x' : result = numberOne * numberTwo;
+                    break;
+                    case '/' : result = numberOne / numberTwo;
+                    break;
+                    case '%' : result = numberOne % numberTwo;
+                    break;
+                }
+                console.log(result);
+                document.querySelector("#result").innerText = result;
+            }
+        </script>
+    </body>
+</html>

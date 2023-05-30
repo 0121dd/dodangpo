@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>4의 배수</title>
+    </head>
+    <body>
+        <h2>4의 배수일까 아닐까?</h2>
+        <script>
+            // 숫자를 입력하세요.
+            var inputNum = prompt("숫자를 입력하세요.");
+            // if문 이용, %연산자 사용
+            if(inputNum != null) {
+                if(inputNum % 4 == 0) {
+                    document.write("4의 배수가 맞습니다.");
+                }else {
+                    document.write("4의 배수가 아닙니다.");
+                }
+            }else {
+                document.write("취소하였습니다.");
+            }
+        </script>
+    </body>
+</html>
