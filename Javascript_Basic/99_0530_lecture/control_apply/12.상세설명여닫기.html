@@ -6,20 +6,56 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
-
-            .btn {
-                position: absolute;
-                left: 10px;
-                bottom: 10px;
+            #item {
+                width: 500px;
+                /* static(기본), relative, absolute / 부모기준 */
+                position: relative;
+                padding: 15px 20px;
+            }
+            .over {
+                position: absolute; /* #item이 부모 */
+                left: 30px;
+                top: 270px;
+            }
+            button {
+                background-color: rgba(255,255,255,0.4);
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+            .detail {
+                width: 400px;
+                line-height: 1.8;
+                text-align: left;
+                --display: none;
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+            .detail.active {
+                opacity: 1;
+                max-height: 500px;
             }
         </style>
     </head>
     <body>
-        <div id="">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("open").addEventListener("click", function() {
+                    // document.getElementsByClassName("detail")[0].style.display = "block";
+                    document.getElementsByClassName("detail")[0].classList.add("active");
+                    document.getElementsByClassName("over")[0].style.display = "none";
+                })
+                document.querySelector("#close").addEventListener("click", function() {
+                        document.querySelector("#desc").style.display = "none";
+                        document.querySelector("#open").style.display = "block";
+                })
+            })
+            
+        </script>
+        <div id="item">
             <img src="../images/flower1.jpg" alt="꽃">
-            <button class="btn" id="open">상세 설명 보기</button>
+            <button class="over" id="open">상세 설명 보기</button>
         </div>
-        <div>
+        <div id="desc" class="detail">
             <h4>등심붓꽃</h4>
             <p>
                 북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다. 길가나 잔디밭에서 흔히 볼 수 있다. 아주 작은 씨앗을 무수히 많이 가지고 있는데 바람을 이용해 씨앗들을 날려보내거나, 뿌리줄기를 통해 동일한 개체들을 많이 만들어 냄으로써 번식한다.
