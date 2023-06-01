@@ -65,26 +65,62 @@
 
     <script>
         // 2번
-
+        function student() {
+            var objArrs = new Array();
+            // 입력하고 배열에 넣기
+            for(var i = 0; i < 3; i++) {
+                var student = {};
+                student.name = prompt((i+1) + "번째 학생 이름을 입력하세요.");
+                student.age = prompt((i+1) + "번째 학생 나이를 입력하세요.");
+                student.addr = prompt((i+1) + "번째 학생 주소를 입력하세요.");
+                objArrs.push(student);
+            }
+            // 출력부분 따로
+            for(var j = 0; j < objArrs.length; j++) {
+                document.querySelectorAll("[name=name]")[j].innerHTML = objArrs[j].name;
+                document.querySelectorAll("[name=age]")[j].innerHTML = objArrs[j].age;
+                document.querySelectorAll("[name=addr]")[j].innerHTML = objArrs[j].addr;
+            }
+        }
         // 1번
-        var member;
+        var member = null;
         function insertMember() {
+            var name = prompt("이름을 입력해주세요.");
+            var age = prompt("나이를 입력해주세요.");
+            var address = prompt("주소를 입력해주세요.");
             member = new Object();
-            member.name = prompt("이름을 입력해주세요.");
-            member.age = prompt("나이를 입력해주세요.");
-            member.address = prompt("주소를 입력해주세요.");
-            // console.log(member);
+            member.name = name;
+            member.age = age;
+            member.address = address;
+            // 앞에 !를 붙여서 true로 만들어줌
+            /* 
+            if(!member.name || !member.age || !member.address) {
+                alert("값을 다시 입력해주세요.");
+            } */
         }
         function printMember() {
-            var result = document.querySelector("#print");
-            // console.log(member);
-            if(member == null) {
-                alert("입력 먼저 해주세요.");
-            }else { 
-                result.innerHTML += "이름 : " + member.name + "<br>";
-                result.innerHTML += "나이 : " + member.age + "세<br>";
-                result.innerHTML += "주소 : " + member.address + "<br>";
+            // false를 return하는데 true가 되야 동작하니까 member앞에 ! 붙여줘야 함
+            if(!member) {
+                alert("입력버튼 먼저 눌러주세요.");
+                return false;
             }
+            for(var key in member) {
+                if(!member[key]) {
+                    alert("값을 모두 먼저해주세요.");
+                    return false;
+                }
+            }
+            var printTag = document.querySelector("#print");
+            with(member) {
+                printTag.innerHTML += "이름 : " + name + "<br>";
+                printTag.innerHTML += "나이 : " + age + "세<br>";
+                printTag.innerHTML += "주소 : " + address + "<br>";
+            }
+            /* 
+            printTag.innerHTML += "이름 : " + member.name + "<br>";
+            printTag.innerHTML += "나이 : " + member.age + "세<br>";
+            printTag.innerHTML += "주소 : " + member.address + "<br>"; 
+            */
         }
     </script>
 </body>
