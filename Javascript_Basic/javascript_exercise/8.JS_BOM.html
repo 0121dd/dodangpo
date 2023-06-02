@@ -53,20 +53,43 @@
         <button onclick="checkHistory()">history 실행 확인</button>
         <script>
             var checkClock = null;
+            var clockObj = null;
             function startClock() {
+                /* // 선생님 코드
+                var clockArea = document.querySelector("#clockArea");
+                clockObj = window.setInterval(function() {
+                    var nowTime = new Date();
+                    clockArea.innerText = nowTime.getHours() + " : " + nowTime.getMinutes() + " : " +  nowTime.getSeconds();
+                    // clockArea.innerText = nowTime.toLocaleDateString();
+                    // clockArea.innerText = nowTime.toLocaleTimeString();
+                }, 1000); */
+                
                 function clock() {
                     var today = new Date();
                     var todayHours = today.getHours();
                     var todayMinutes = today.getMinutes();
                     var todaySeconds = today.getSeconds();
                     document.querySelector("#clockArea").innerText 
-                        = todayHours + " : " + todayMinutes + " : " +  todaySeconds;
+                    = todayHours + " : " + todayMinutes + " : " +  todaySeconds;
                 }
-                    // console.log(checkClock);
-                checkClock = setInterval(clock, 1000)
+                checkClock = setInterval(clock, 1000);
+                /* 위 코드를 익명함수로 변환함
+                checkClock = setInterval(function() {
+                    var today = new Date();
+                    var todayHours = today.getHours();
+                    var todayMinutes = today.getMinutes();
+                    var todaySeconds = today.getSeconds();
+                    document.querySelector("#clockArea").innerText 
+                    = todayHours + " : " + todayMinutes + " : " +  todaySeconds;
+                }, 1000); */
             }
-            
+            // window. 생략 가능
             function stopClock() {
+                /* // 선생님 코드
+                window.clearInterval(clockObj);
+                documemnt.querySelector("#clockArea").innerText = "";  
+                */
+                
                 clearInterval(checkClock);
             }
 
