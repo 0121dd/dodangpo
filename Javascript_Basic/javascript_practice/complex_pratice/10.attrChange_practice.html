@@ -28,10 +28,12 @@
         <script>
             function colorChange() {
                 // 컬러 뽑기 - input에 선택자가 없어서 "[type=color]" 이렇게 입력
-                var colorValue = document.querySelector("[type=color]").value;
+                // var colorVal = document.querySelector("[type=color]").value;
+                var colorVal = $("[type=color]").val;
                 // console.log(colorValue);
                 // div에 색칠하기
-                document.querySelector("#div1").style.backgroundColor = colorValue;
+                // document.querySelector("#div1").style.backgroundColor = colorValue;
+                $("#div1").css("background-color", colorVal);
             }
             // style.width, style.height
             var divTag2 = document.querySelector("#div2");
